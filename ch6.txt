@@ -1,0 +1,21 @@
+ ****** ***************************** Top of Data ******************************
+ 000001 /* REXX */                                                              
+ 000002 say ' Report to show a newbie how system commands are issued'           
+ 000003 say '--------------------------------------------------------'          
+ 000004 rc=isfcalls('ON')                                                       
+ 000005 mycmd.0=3                                                               
+ 000006 mycmd.1="$DSPL"                                                         
+ 000007 mycmd.2="$D JOBQ,JM=S*"                                                 
+ 000008 mycmd.3="$D I"                                                          
+ 000009 Address SDSF ISFSLASH "("mycmd.") (WAIT)"                               
+ 000010 Say "isfmsg is:" isfmsg                                                 
+ 000011 Say "isfmsg2.0 is:" isfmsg2.0                                           
+ 000012 if datatype(isfmsg2.0) = "NUM" then                                     
+ 000013 do ix=1 to isfmsg2.0                                                    
+ 000014 Say "isfmsg2."ix "is:" isfmsg2.ix                                       
+ 000015 end                                                                     
+ 000016 rc=isfcalls('OFF')                                                      
+ 000017 say '--------------------------------------------------'                
+ 000018 say 'This is the last report, Thankyou'                                 
+ 000019 say '--------------------------------------------------'                
+ ****** **************************** Bottom of Data ****************************

@@ -1,0 +1,55 @@
+ 000001 /* REXX */                                                             
+ 000002 rc=isfcalls('ON')                                                      
+ 000003 isfsysid="s0w1"                                                        
+ 000004 isfdate="mmddyyyy /"                                                   
+ 000005 currday=date("C")                                                      
+ 000006 currday=currday-2                                                      
+ 000007 isflogstartdate=date("U",currday,"C")                                  
+ 000008 isflogstarttime=time("N")                                              
+ 000009 isflogstopdate=date("U")                                               
+ 000010 isflogstoptime=time("N")                                               
+ 000011 isffind = 'z00008'                                                     
+ 000012 isffindlim = 9999999                                                   
+ 000013 isfscrolltype = 'FINDNEXT'                                             
+ 000014 isflinelim = 1                                                         
+ 000015 say ' This report shows all the log for the user z00008 '              
+ 000016 say '----------------------------------------------------'             
+ 000017 say ' Shows records where z00008 string is found in syslog'            
+ 000018 do until isfnextlinetoken=''                                           
+ 000019 Address SDSF "ISFLOG READ TYPE(SYSLOG)"                                
+ 000020 lrc=rc                                                                 
+ 000021 if lrc>4 then                                                          
+ 000022 do                                                                     
+ 000023 call msgrtn                                                            
+ 000024  exit 20                                                               
+ 000025  end                                                                   
+ 000026 do ix=1 to isfline.0                                                   
+ 000027 say isfline.ix                                                         
+ 000028 end                                                                    
+ 000029 isfstartlinetoken = isfnextlinetoken                                   
+ 000030 end                                                                    
+ 000031 rc=isfcalls("off")                                                     
+ 000032 exit                                                                   
+ 000033 msgrtn: procedure expose isfmsg isfmsg2.                               
+ 000034 if isfmsg <> "" then                                                   
+ 000035 Say "isfmsg is:" isfmsg                                                
+ 000036 do ix=1 to isfmsg2.0                                                    
+ 000037 Say "isfmsg2."ix "is:" isfmsg2.ix                                       
+ 000038 end                                                                     
+ 000039 return                                                                  
+ ****** **************************** Bottom of Data ****************************
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                

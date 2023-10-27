@@ -1,0 +1,22 @@
+ ****** ***************************** Top of Data ******************************
+ 000100 /* REXX */                                                              
+ 000200 rc=isfcalls('ON')                                                       
+ 000300 isfactions="ON"                                                         
+ 000400 Address SDSF "ISFEXEC ST"                                               
+ 000500 if rc<>0 then                                                           
+ 000600 Exit rc                                                                 
+ 000700 Say "Report for all the Actions valid on the panel are:"                
+ 000710 say '--------------------------------------------------'                
+ 000800 do ix=1 to isfresp.0                                                    
+ 000900 Say " " isfresp.ix                                                      
+ 001000 end                                                                     
+ 001100 rc=isfcalls('OFF')                                                      
+ 001200 say '--------------------------------------------------'                
+ 001300 say 'View next report'                                                  
+ 001400 say '--------------------------------------------------'                
+ ****** **************************** Bottom of Data ****************************
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                

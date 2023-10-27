@@ -1,0 +1,36 @@
+ ****** ***************************** Top of Data ******************************
+ ==MSG> -Warning- The UNDO command is not available until you change            
+ ==MSG>           your edit profile using the command RECOVERY ON.              
+ 000001 /* REXX */                                                              
+ 000002 /*----------------------------------------------*/                      
+ 000003 clrscn                                                                  
+ 000004 say 'FINAL CHALLENGE REPORT CREATED BY - 'userid()                      
+ 000005 say '----------------------------------------'                          
+ 000006 say 'Please view all reports for Judgement'                             
+ 000007 say '----------------------------------------'                          
+ 000008 say '   System Information Utility    '                                 
+ 000009 say ' '                                                                 
+ 000010 say '   Information requested:'                                         
+ 000011 say '   1. Introductory Report for System details found in SYSLOG'      
+ 000012 say '   2. Parsing Report for unauthorized request Userid (Mandatory)'  
+ 000013 say '   3. Report for System Information'                               
+ 000014 say '   4. Report showing all Action characters on ST Panel'            
+ 000015 say '   5. Report to find sring z00008 in syslog '                      
+ 000016 say '   6. Report for showing how system commands are issued'           
+ 000017 SAY '   7. Report for WHO Command and revert results'                   
+ 000018 say ' '                                                                 
+ 000019 say '   Enter report number'                                            
+ 000020 pull answer                                                             
+ 000021 answer = strip(answer)                                                  
+ 000022 Select                                                                  
+ 000023  When answer = 1 then 'exec ch15(ch1)'                                  
+ 000024  When answer = 2 then 'exec ch15(logged_in_users)'                                  
+ 000025  When answer = 3 then 'exec ch15(ch2)'                                  
+ 000026  when answer = 4 then 'exec ch15(ch4)'                                  
+ 000027  when answer = 5 then 'exec ch15(ch5)'                                  
+ 000028  when answer = 6 then 'exec ch15(ch6)'                                  
+ 000029  when answer = 7 then 'exec ch15(ch3)'                                  
+ 000030  Otherwise say 'Invalid report selection'                               
+ 000031 End                                                                     
+ 000032 Exit 0                                                                  
+ ****** **************************** Bottom of Data ****************************

@@ -1,0 +1,21 @@
+ Command ===>                                                  Scroll ===> CSR  
+ ****** ***************************** Top of Data ******************************
+ 000001 /* REXX */                                                              
+ 000002 say '------------------------------------'                              
+ 000003 say 'Report telling Information about the currently logged in system'   
+ 000004 say '------------------------------------'                              
+ 000005 say 'By using *WHO EXEC* Utility command'                               
+ 000006 say '------------------------------------'                              
+ 000007 rc=isfcalls('ON')                                                       
+ 000008 Address SDSF "ISFEXEC WHO"                                              
+ 000009 do ix=1 to isfresp.0                                                    
+ 000010 Say "isfresp."ix " is:" isfresp.ix                                      
+ 000011 end                                                                     
+ 000012 rc=isfcalls('OFF')                                                      
+ 000013 say '--------------------------------------------------'                
+ 000014 say 'View next report'                                                  
+ 000015 say '--------------------------------------------------'                
+ 000016 exit                                                                    
+ ****** **************************** Bottom of Data ****************************
+                                                                                
+                                                                                
